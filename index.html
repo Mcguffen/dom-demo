@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ZH-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            border: 1px solid red;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <script>
+        // node 方法
+        div1 = document.getElementById('div1')
+        var div2 = div1.cloneNode(true)
+        document.body.appendChild(div2)
+        console.log('div1和div2看起来一样吗？');
+        // div1和div2看起来一样
+        console.log(div1.isEqualNode(div2));// true
+        console.log('div1和div2是同一个div吗？');
+        // div1和div2真的一样 叫同一个的意思
+        console.log(div1.isSameNode(div2)); // false
+        console.log(div1 === div2); //false
+
+        div3 = document.createElement('div3')
+        document.body.appendChild(div3)
+        div3.appendChild(document.createTextNode('hello '))
+        div3.appendChild(document.createTextNode('wolrd '))
+        console.log('div3的儿子节点的长度是');
+        console.log(div3.childNodes.length);
+        console.log('div3第一个儿子节点的文本内容是');
+        console.log(div3.childNodes[0].textContent);
+        console.log('div3第二个儿子节点的文本内容是');
+        console.log(div3.childNodes[1].textContent);
+        div3.normalize()
+        console.log('normailize后,div3的儿子节点的长度是');
+        console.log(div3.childNodes.length);
+        console.log('div3第一个儿子节点内容为');
+        console.log(div3.childNodes[0].textContent);
+
+
+
+
+    </script>
+</body>
+</html>
